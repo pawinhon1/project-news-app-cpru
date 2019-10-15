@@ -1,0 +1,51 @@
+<!-- <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #0acc;">
+    <a routerLink="/" class="navbar-brand">หน้าแรก</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a routerLink="/adddata" class="nav-link">เพิ่มข่าวสาร</a>
+            </li>
+
+            <li class="nav-item active">
+                <a routerLink="/register" class="nav-link">สมัครสมาชิก</a>
+            </li>
+
+            <li class="nav-item active">
+                <a routerLink="/login" class="nav-link">เข้าสู่ระบบ</a>
+            </li>
+
+            <li class="nav-item active">
+                <a href="" class="nav-link">ออกจากระบบ</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+
+
+<header class="templateux-navbar" data-aos="fade-down">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-3"><div class="site-logo"><a routerLink="/" class="animsition-link">หน้าแรก</a></div></div>
+        <div class="col-sm-9 col-9 text-right">
+
+          <button class="hamburger hamburger--spin toggle-menu ml-auto js-toggle-menu" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>  
+
+          <nav class="templateux-menu js-templateux-menu" role="navigation">
+            <ul class="list-unstyled">
+              <li class="d-md-none d-block active"><a routerLink="/" class="animsition-link">หน้าแรก</a></li>
+              <li><a routerLink="/adddata" class="animsition-link">เพิ่มข่าวสาร</a></li>
+              <li><a routerLink="/register" class="animsition-link">สมัครสมาชิก</a></li>
+              <li><a routerLink="/login" class="animsition-link">เข้าสู่ระบบ</a></li>
+              <li><a (click)="logout()" class="animsition-link">ออกจากระบบ</a></li>
+            </ul>
+          </nav>  
+        </div>
+      </div>
+    </div>
+  </header>

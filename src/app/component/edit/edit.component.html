@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<section class="templateux-hero">
+        <div class="container">
+          <div class="row align-items-center justify-content-center intro">
+            <div class="col-md-10" data-aos="fade-up">
+              <h1>แก้ไขข่าวสาร</h1>
+              <i class="go-down js-smoothscroll"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+<div class="container">
+        <div class="container-fluid">
+            <div class="card border-primary">
+                <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" style="text-align: center;">
+                            <h3>เพิ่มข่าวสาร</h3>
+                    </ul>
+                </div>
+                </div>
+
+                  <div class="card-body">
+        
+        <form action="" #addNewsForm method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="caption" name="caption" class="form-control" placeholder="" aria-describedby="helpId" value="{{data.caption}}">
+                <small id="helpId" class="text-muted">หัวข้อ</small>
+            </div>
+            <div class="form-group">
+                    <input type="text" [(ngModel)]="describtion" name="describtion" class="form-control" placeholder="" aria-describedby="helpId" value="{{data.describtion}}">
+                    <small id="helpId" class="text-muted">คำอธิบาย</small>
+            </div>
+            <div class="form-group">
+                    <input type="text" [(ngModel)]="type" name="type" class="form-control" placeholder="" aria-describedby="helpId" value="{{data.type}}">
+                    <small id="helpId" class="text-muted">ประเภท</small>
+            </div>
+            <div class="form-group">
+                    <input #fileImage type="file" [(ngModel)]="image_name" name="file_name" (change)="inputFile(fileImage)" class="form-control" value="{{data.image}}">
+                    <small id="helpId" class="text-muted">เพิ่มรูปภาพ</small>
+            </div>
+
+            <h3 style="color: green">ภาพเดิม</h3>
+            <div *ngIf="data.image">
+                <img src="{{data.image}}" alt="" width="20%">
+            </div>
+
+            
+            <div *ngIf="image">
+                <h3 style="color:red;">ภาพใหม่</h3>
+                <img src="{{image}}" alt="" width="20%">
+            </div>
+            <button class="btn btn-primary" (click)="updateNews()">โพสต์</button>
+        </form>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<app-footer></app-footer>

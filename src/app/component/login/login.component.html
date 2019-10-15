@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<section class="templateux-hero">
+        <div class="container">
+          <div class="row align-items-center justify-content-center intro">
+            <div class="col-md-10" data-aos="fade-up">
+              <h1>เข้าสู่ระบบ</h1>
+              <i class="go-down js-smoothscroll"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+<div class="container">
+        <div class="container-fluid">
+            <div class="card border-primary">
+
+                  <div class="card-body">
+                      <form action="" method="post" #loginForm>
+                        <div class="form-group">
+                            <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="Username" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted">Username</small>
+                        </div>
+
+                        <div class="form-group">
+                                <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Username" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted">password</small>
+                        </div>
+                        <button class="btn btn-success" (click)="clickLogin()">Login</button>
+                </form>
+                  </div>
+                
+                
+            </div>
+        </div>
+</div>
+<app-footer></app-footer>
