@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ServiceService } from 'src/app/service/service.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-edit',
@@ -8,24 +9,26 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 
 export class EditComponent implements OnInit{
-    data : any;
-    image: any;
-    caption: any;
-    describtion: any;
-    type: any;
+    data : any = {};
     id : any;
+    news: any;
+    image: any;
+    url = 'http://localhost:3000/update';
 
-    constructor(private service: ServiceService, private actRoute: ActivatedRoute){}
-
+    constructor(private service: ServiceService, private actRoute: ActivatedRoute,private http: HttpClient, private route: Router){
+    }
+    
     ngOnInit(){
         this.actRoute.params.subscribe(params => {
-            this.service
-              .editNews(params['id'])
+            this.id = params.id;
+            // alert(this.id);
+            this.service.editNews(this.id)
               .subscribe(res => {
                 this.data = res.doc;
               });
           });
     }
+
 
     inputFile(input){
         if(input.files.length == 0){
@@ -39,22 +42,23 @@ export class EditComponent implements OnInit{
         });
       }
 
-    // updateNews(){
-    //     const data = {
-    //         "caption": this.caption,
-    //         "describtion": this.describtion,
-    //         "type": this.type,
-    //         "image": this.image
-    //     }
-    //     this.service.updateNews(this.id,data).subscribe(result=>{
-    //         alert('Update success!');
-    //     });
-    // }
-
-    
-    // editNews(id){
-    //     this.service.editNews(id).subscribe(res=>{
-    //         alert(res);
-    //     });
-    // }
+      clickUpdate() {
+        if(this.image == null){
+            this.http.post<any>(`${this.url}/${this.id}`, this.data).subscribe(result=>{
+              alert('อัพเดทข้อมูลเรียบร้อย!');
+            });
+        }
+        else{
+            const allData = {
+            "caption": this.data['caption'],
+            "describtion": this.data['describtion'],
+            "type": this.data['type'],
+            "image": this.image
+            }
+            this.http.post<any>(`${this.url}/${this.id}`, allData).subscribe(result=>{
+              alert('อัพเดทข้อมูลเรียบร้อย!');
+            });
+        }
+      }
+      
 }

@@ -12,10 +12,13 @@ export class AddComponent implements OnInit {
   describtion: any; 
   type: any;
   image: any;
-
+  mId : any;
+  status : any;
   constructor(private service: ServiceService ,private route: Router) { }
-
+  
   ngOnInit() {
+    this.mId = localStorage.getItem("member_id");
+    this.status = localStorage.getItem('status');
   }
 
   inputFile(input){
@@ -36,7 +39,8 @@ export class AddComponent implements OnInit {
       "caption": this.caption,
       "describtion": this.describtion,
       "type": this.type,
-      "image": this.image
+      "image": this.image,
+      "member_id": this.mId
     };
     this.service.addNews(dataAdd).subscribe(result=>{
       this.route.navigateByUrl('/index');

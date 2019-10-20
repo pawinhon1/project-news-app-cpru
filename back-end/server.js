@@ -84,7 +84,7 @@ app.get('/edit/:id', (req,res)=>{
 });
 
 app.post('/update/:id', (req,res)=>{
-    newsModel.findOne({_id: req.params.id}, (err,doc)=>{
+    newsModel.findById(req.params.id, (err,doc)=>{
         doc.caption = req.body.caption;
         doc.describtion = req.body.describtion;
         doc.type = req.body.type;
@@ -98,3 +98,28 @@ app.post('/update/:id', (req,res)=>{
     });
 });
 
+app.post('/updatestatus/:id', (req,res)=>{
+    memberModel.findById({_id:req.params.id}, (err,doc)=>{
+        doc.status = req.body.status;
+
+        doc.save().then(res=>{
+            res.json({res : "update done!"});
+        }).catch(err=>{
+            res.status(400).send('Update failed!');
+        });
+    });
+});
+
+
+app.post('/updateSNews/:id', (req,res)=>{
+    newsModel.findById({_id: req.params.id}, (err,doc)=>{
+        doc.status = req.body.status
+
+        doc.save();
+        // doc.save().then(res=>{
+        //     res.json({res : "update done!"});
+        // }).catch(err=>{
+        //     res.status(400).send('Update failed!');
+        // });
+    });
+});

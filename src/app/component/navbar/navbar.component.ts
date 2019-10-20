@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
-
+  memberStatus :any;
   constructor(private route: Router) { }
 
   ngOnInit() {
+    this.memberStatus = localStorage.getItem('status');
   }
 
   logout(){

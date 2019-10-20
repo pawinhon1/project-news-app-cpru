@@ -13,12 +13,14 @@ export class ListComponent implements OnInit {
   // dataNews :any[] = [];
   type: any;
   firstname : any ;
+  status: any;
 
   constructor(private service: ServiceService, private route: Router) { }
 
   ngOnInit() {
       this.getNews();
       this.firstname = localStorage.getItem("firstname");
+      this.status = localStorage.getItem('status');
   }
 
   getNews(){

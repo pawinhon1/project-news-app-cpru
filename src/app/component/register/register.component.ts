@@ -21,8 +21,7 @@ export class RegisterComponent implements OnInit {
         // console.log(JSON.stringify({}));
           console.log(JSON.stringify(result));
           alert('สมัครสมาิชิกเรียบร้อย');
-          // this.route.navigateByUrl('/login');
-          window.location.reload();
+          this.route.navigateByUrl('/login');
       });
   }
 

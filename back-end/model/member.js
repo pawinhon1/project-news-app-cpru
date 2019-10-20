@@ -6,7 +6,7 @@ var memberSchema = mongoose.Schema({
     firstname: String,
     lastname: String,
     tel: String,
-    status: { type: String, default: 'user' }
+    status: String
 });
 
 var memberModel = mongoose.model('member_news', memberSchema);

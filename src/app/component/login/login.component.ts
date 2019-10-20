@@ -22,11 +22,13 @@ export class LoginComponent implements OnInit {
       "password": this.password
     }
     this.service.login(data).subscribe(result=>{
-        alert(JSON.stringify(result));
         this.data = result.doc;
         console.log(JSON.stringify(this.data));
-          if(this.data != null){
+          if(this.data != null && this.data['status'] != null){
             this.takeLogin();
+          }
+          else{
+            alert('รอการยืนยันตัวตนจากแอดมิน!')
           }
     });
   }
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
   takeLogin(){
     // console.log(this.data['firstname'],this.data['lastname']);
     // ขอบคุณ https://www.c-sharpcorner.com/article/create-registration-and-login-page-using-angular-7-and-web-api/ ที่ทำให้เกิดไอเดียในเรื่องการดึงข้อมูลอาเรย์มาแสดงใน ts file ขอบคุณจากใจ
+    localStorage.setItem("member_id", this.data['_id']);
     localStorage.setItem("firstname", this.data['firstname']);
     localStorage.setItem("lastname", this.data['lastname']);
     localStorage.setItem("status", this.data['status']);

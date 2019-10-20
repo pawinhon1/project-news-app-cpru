@@ -1,43 +1,44 @@
 <app-navbar></app-navbar>
-            <section class="templateux-hero">
-                    <div class="container">
-                      <div class="row align-items-center justify-content-center intro">
-                        <div class="col-md-10" data-aos="fade-up">
-                          <h1>ข่าวสารใหม่ๆ</h1>
-                          <h2>{{firstname}}</h2>
-                          <i class="go-down js-smoothscroll"></i>
+<section class="templateux-hero">
+        <div class="container">
+          <div class="row align-items-center justify-content-center intro">
+            <div class="col-md-10" data-aos="fade-up">
+              <h1>ข่าวสารใหม่ๆ</h1>
+              <h2>{{firstname}}</h2>
+              <i class="go-down js-smoothscroll"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      
+      <section class="templateux-portfolio-overlap" id="next" >
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" *ngFor="let item of dataResult">
+                  <div *ngIf="item.status == 'allow'">
+                      <a class="project animsition-link" href="work-single.html">
+                      <figure>
+                        <img src="{{item.image}}" alt="Free Template" class="img-fluid">  
+                      </figure>
+                      <div class="project-hover">
+                        <div class="project-hover-inner">
+                          <h2>{{item.caption}}</h2>
+                          <span>{{item.describtion}}y</span>
                         </div>
                       </div>
-                    </div>
-                  </section>
+                    </a>
 
-
-                  
-                  <section class="templateux-portfolio-overlap" id="next">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class="col-lg-4 col-md-6" data-aos="fade-up" *ngFor="let item of dataResult">
-                              <a class="project animsition-link" href="work-single.html">
-                                <figure>
-                                  <img src="{{item.image}}" alt="Free Template" class="img-fluid">  
-                                </figure>
-                                <div class="project-hover">
-                                  <div class="project-hover-inner">
-                                    <h2>{{item.caption}}</h2>
-                                    <span>{{item.describtion}}y</span>
-                                  </div>
-                                </div>
-                              </a>
-
-                                <button class="btn btn-success" (click)="editNews(item._id)">Edit</button>
-                                <button class="btn btn-danger" (click)="deleteData(item._id)">Delete</button>
-                            
-                            </div>
-                            
-                          </div>
-                          <!-- END row -->
-                        </div>
-                      </section>
+                      <!-- <button class="btn btn-success" (click)="editNews(item._id)">Edit</button>
+                      <button class="btn btn-danger" (click)="deleteData(item._id)">Delete</button> -->
+                  </div>
+                </div>
+                
+              </div>
+              <!-- END row -->
+            </div>
+          </section>
 
                   
         <!-- Search -->

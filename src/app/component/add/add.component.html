@@ -9,7 +9,7 @@
           </div>
         </div>
       </section>
-<div class="container">
+<div class="container" *ngIf="status != null">
             <div class="card border-primary">
 
                   <div class="card-body">
@@ -32,7 +32,7 @@
                     <small id="helpId" class="text-muted">เพิ่มรูปภาพ</small>
             </div>
             <div *ngIf="image">
-                <img src="{{image}}" alt="">
+                <img src="{{image}}" alt="" width="25%">
             </div>
             <button class="button button--red" (click)="addNews()">โพสต์</button>
         </form>

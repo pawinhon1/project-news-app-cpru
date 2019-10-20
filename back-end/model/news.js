@@ -5,8 +5,8 @@ var newsSchema = mongoose.Schema({
     describtion: String,
     type: String,
     image: String,
-    firstname: String,
-    lastname: String
+    member_id: String,
+    status: { type: String, default: 'not' }
 });
 
 var newsModel = mongoose.model('news', newsSchema);

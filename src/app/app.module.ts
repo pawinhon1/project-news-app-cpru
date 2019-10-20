@@ -8,13 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { DetailComponent } from './component/detail/detail.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ListComponent } from './component/list/list.component';
 import { AddComponent } from './component/add/add.component';
 import { ShowComponent } from './component/show-find-news/show.component';
 import { EditComponent } from './component/edit/edit.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ManageComponent } from './component/manage-post/manage.component';
+import { MnuserComponent } from './component/manage-post-user/mnuser.component';
+import { MemberComponent } from './component/member/membber.component';
+import { DetailComponent } from './component/detail-component/detail.component';
 
 
 @NgModule({
@@ -22,13 +25,16 @@ import { FooterComponent } from './component/footer/footer.component';
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    DetailComponent,
     RegisterComponent,
     ListComponent,
     AddComponent,
     ShowComponent,
     EditComponent,
-    FooterComponent
+    FooterComponent,
+    ManageComponent,
+    MnuserComponent,
+    MemberComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

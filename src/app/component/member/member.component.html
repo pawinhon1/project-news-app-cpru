@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<section class="templateux-hero">
+    <div class="container">
+        <div class="row align-items-center justify-content-center intro">
+            <div class="col-md-10" data-aos="fade-up">
+                <h1>จัดการข้อมูลสมาชิก</h1>
+                <i class="go-down js-smoothscroll"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" *ngIf="status == 'admin'">
+        <table class="table" width="100%">
+            <thead>
+                <tr style="text-align: center; width: 100%;" >
+                    <th>ชื่อ - สกุล</th>
+                    <th>เบอร์โทรศัพท์</th>
+                    <th>สถานะ</th>
+                    <th>ยืนยันตัวตน</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data" style="text-align: center;">
+                        <td scope="row">{{item.firstname}}  {{item.lastname}}</td>
+                        <td>{{item.tel}}</td>
+                        <td>{{item.status}}</td>
+                        <td><button class="btn btn-success" (click)="allowUser(item._id)">ยืนยัน</button></td>    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<app-footer></app-footer>
