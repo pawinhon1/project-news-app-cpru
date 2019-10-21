@@ -90,10 +90,10 @@ app.post('/update/:id', (req,res)=>{
         doc.type = req.body.type;
         doc.image = req.body.image;
 
-        doc.save().then(res=>{
+        doc.save().then(doc=>{
             res.json({res : "update done!"});
         }).catch(err=>{
-            res.status(400).send('Update failed!');
+            res.status(400).send({err});
         });
     });
 });
@@ -102,7 +102,7 @@ app.post('/updatestatus/:id', (req,res)=>{
     memberModel.findById({_id:req.params.id}, (err,doc)=>{
         doc.status = req.body.status;
 
-        doc.save().then(res=>{
+        doc.save().then(doc=>{
             res.json({res : "update done!"});
         }).catch(err=>{
             res.status(400).send('Update failed!');
@@ -113,13 +113,12 @@ app.post('/updatestatus/:id', (req,res)=>{
 
 app.post('/updateSNews/:id', (req,res)=>{
     newsModel.findById({_id: req.params.id}, (err,doc)=>{
-        doc.status = req.body.status
+        doc.status = req.body.status;
 
-        doc.save();
-        // doc.save().then(res=>{
-        //     res.json({res : "update done!"});
-        // }).catch(err=>{
-        //     res.status(400).send('Update failed!');
-        // });
+        doc.save().then(doc=>{
+            res.json({res : "update done!"});
+        }).catch(err=>{
+            res.status(400).send('Update failed!');
+        });
     });
 });

@@ -33,6 +33,7 @@ export class MemberComponent implements OnInit{
         }
         this.http.post<any>(`${this.url}/${id}`,data).subscribe(()=>{
             alert('ยืนยันตัวตนเรียบร้อย');
+            this.ngOnInit();
         });
     }
 }

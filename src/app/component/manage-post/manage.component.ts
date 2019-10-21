@@ -41,7 +41,8 @@ export class ManageComponent implements OnInit{
             "status": "allow"
         }
         this.https.post(`${this.url}/${id}`, data).subscribe(res=>{
-            console.log('Update complete');
+            alert('ทำรายการสำเร็จ!');
+            this.ngOnInit();
         });
     }
 
@@ -50,7 +51,8 @@ export class ManageComponent implements OnInit{
             "status": "notallow"
         }
         this.https.post(`${this.url}/${id}`, data).subscribe(res=>{
-            console.log('Update complete');
+            alert('ทำรายการสำเร็จ!');
+            this.ngOnInit();
         });
     }
 }

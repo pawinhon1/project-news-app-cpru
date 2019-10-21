@@ -44,7 +44,7 @@ export class EditComponent implements OnInit{
 
       clickUpdate() {
         if(this.image == null){
-            this.http.post<any>(`${this.url}/${this.id}`, this.data).subscribe(result=>{
+            this.http.post(`${this.url}/${this.id}`, this.data).subscribe(result=>{
               alert('อัพเดทข้อมูลเรียบร้อย!');
             });
         }
@@ -55,7 +55,7 @@ export class EditComponent implements OnInit{
             "type": this.data['type'],
             "image": this.image
             }
-            this.http.post<any>(`${this.url}/${this.id}`, allData).subscribe(result=>{
+            this.http.post(`${this.url}/${this.id}`, allData).subscribe(result=>{
               alert('อัพเดทข้อมูลเรียบร้อย!');
             });
         }
