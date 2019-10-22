@@ -6,6 +6,7 @@ var newsSchema = mongoose.Schema({
     type: String,
     image: String,
     member_id: String,
+    date: String,
     status: { type: String, default: 'not' }
 });
 

@@ -25,8 +25,8 @@
                     <small id="helpId" class="text-muted">คำอธิบาย</small>
             </div>
             <div class="form-group">
-                    <input type="text" [(ngModel)]="data.type" name="type" class="form-control" placeholder="" aria-describedby="helpId" value="{{data.type}}">
-                    <small id="helpId" class="text-muted">ประเภท</small>
+                <textarea class="form-control" [(ngModel)]="data.type" name="type" id="exampleFormControlTextarea1" rows="10"></textarea>
+                <small id="exampleFormControlTextarea1" class="text-muted">เนื้อหา</small>
             </div>
             <div class="form-group">
                     <input #fileImage type="file" [(ngModel)]="image" name="image" (change)="inputFile(fileImage)" class="form-control" value="">

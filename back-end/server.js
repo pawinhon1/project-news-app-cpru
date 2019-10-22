@@ -31,6 +31,12 @@ app.get('/member', (req,res)=>{
     });
 });
 
+app.get('/findMember/:id', (req,res)=>{
+    memberModel.findById({_id: req.params.id}, (err,doc)=>{
+        res.json({doc});
+    });
+});
+
 app.post('/register', (req,res)=>{
     memberModel.create(req.body, (err,doc)=>{
         if(err) res.json({result: "Register Failed!"});
@@ -120,5 +126,17 @@ app.post('/updateSNews/:id', (req,res)=>{
         }).catch(err=>{
             res.status(400).send('Update failed!');
         });
+    });
+});
+
+app.get('/newslist', (req,res)=>{
+    newsModel.find({status: "allow"}, (err,doc)=>{
+        res.json({doc});
+    });
+});
+
+app.get('/newsDetail/:id', (req,res)=>{
+    newsModel.findById({_id: req.params.id}, (err,doc)=>{
+        res.json({doc});
     });
 });

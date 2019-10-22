@@ -26,8 +26,16 @@ export class ServiceService {
       return this.http.get<any>(`${this.url}/news`);
     }
 
+    listNews(){
+      return this.http.get<any>(`${this.url}/newslist`);
+    }
+
     findNews(data){
       return this.http.post<any>(`${this.url}/findNews`, data);
+    }
+
+    newsDetail(id){
+      return this.http.get<any>(`${this.url}/newsDetail/${id}`);
     }
 
     deleteNews(id){
@@ -40,6 +48,10 @@ export class ServiceService {
 
     getMember(){
       return this.http.get<any>(`${this.url}/member`);
+    }
+
+    findMember(id){
+      return this.http.get<any>(`${this.url}/findMember/${id}`);
     }
 
 }

@@ -24,22 +24,10 @@ export class ListComponent implements OnInit {
   }
 
   getNews(){
-    this.service.getNews().subscribe(res=>{
-      this.dataResult = res.doc;
+    this.service.listNews().subscribe(res=>{
+        this.dataResult = res.doc;
     });
   }
-
-  // findNews(){
-  //   // alert(JSON.stringify(this.type));
-  //   const data={
-  //     "type": this.type
-  //   }
-  //   this.service.findNews(data).subscribe(result=>{
-  //     alert(JSON.stringify(result));
-  //     this.dataNews = result.doc;
-  //   });
-  // }
-
   
   deleteData(id){
     // alert(id);

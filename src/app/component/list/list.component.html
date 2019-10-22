@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
+
 <section class="templateux-hero">
         <div class="container">
           <div class="row align-items-center justify-content-center intro">
             <div class="col-md-10" data-aos="fade-up">
-              <h1>ข่าวสารใหม่ๆ</h1>
+              <h1>ข่าวสารทั้งหมด</h1>
               <h2>{{firstname}}</h2>
               <i class="go-down js-smoothscroll"></i>
             </div>
@@ -18,14 +19,21 @@
               <div class="row">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" *ngFor="let item of dataResult">
                   <div *ngIf="item.status == 'allow'">
-                      <a class="project animsition-link" href="work-single.html">
+                      <a class="project animsition-link" routerLink="/detail/{{item._id}}">
                       <figure>
-                        <img src="{{item.image}}" alt="Free Template" class="img-fluid">  
+                        <div *ngIf="item.image == null">
+                          <img src="./../../../assets/images/img-icon.png" alt="" class="img-fluid">
+                        </div>
+                        <div *ngIf="item.image">
+                          <img src="{{item.image}}" alt="Free Template" class="img-fluid"> 
+                        </div>
+                        <h4>{{item.caption}}</h4>
+                        <span>{{item.describtion}}</span>
                       </figure>
                       <div class="project-hover">
                         <div class="project-hover-inner">
-                          <h2>{{item.caption}}</h2>
-                          <span>{{item.describtion}}y</span>
+                          <h2>อ่านเพิ่มเติม</h2>
+                          <span>{{item.caption}}</span>
                         </div>
                       </div>
                     </a>

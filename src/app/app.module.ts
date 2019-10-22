@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ManageComponent } from './component/manage-post/manage.component';
 import { MnuserComponent } from './component/manage-post-user/mnuser.component';
 import { MemberComponent } from './component/member/membber.component';
 import { DetailComponent } from './component/detail-component/detail.component';
+
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { DetailComponent } from './component/detail-component/detail.component';
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
